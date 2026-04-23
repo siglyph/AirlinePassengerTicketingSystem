@@ -1,14 +1,12 @@
-public class Ticket {
+public abstract class Ticket {
 
-    String seat;
-    int bags;
-    double price;
+    String seatID;
+    int bagsAmt;
+    double ticketPrice;
 
-    public Ticket(){
-
+    public void mandatoryFees(){
+        double boardingFee = 500;
+        double oxygenFee = 1000;
+        double valueAddedTax = 1500;
     }
-
-
-
-
 }
