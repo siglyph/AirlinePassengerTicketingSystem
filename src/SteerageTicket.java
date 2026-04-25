@@ -2,9 +2,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SteerageTicket extends Ticket {
+    private static final int MAX_CAPACITY = 493;
 
-    List<Option> ticketOptions = new ArrayList<>();
+    private List<Option> steerageTicketOptions = new ArrayList<>();
 
+    public SteerageTicket() {
+        Option holdCarryOn = new Option("Hold carry-on bag", 100);
+        steerageTicketOptions.add(holdCarryOn);
+    }
 
     @Override
     public double getBaseTicketPrice() {
@@ -13,16 +18,7 @@ public class SteerageTicket extends Ticket {
 
     @Override
     public List<Option> getTicketOptions() {
-        Option holdCarryOn = new Option("Hold carry-on bag", 100);
-
-        ticketOptions.add(holdCarryOn);
-
-        return ticketOptions;
-    }
-
-    @Override
-    public double totalOptionsPrice() {
-        return 0;
+        return steerageTicketOptions;
     }
 
 }
