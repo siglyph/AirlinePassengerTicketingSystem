@@ -3,19 +3,23 @@ import java.util.List;
 
 public abstract class Ticket {
 
-    private double baseTicketPrice;
-    List<Option> ticketOptions = new ArrayList<>();
+
 
     public abstract double getBaseTicketPrice();
 
     public double getFinalTicketPrice(){
-        return baseTicketPrice + totalOptionsPrice() + totalMandatoryFees();
+        return getBaseTicketPrice() + totalOptionsPrice() + totalMandatoryFees();
     }
 
     public abstract List<Option> getTicketOptions();
-    public abstract void addOption(Option option);
 
-    public abstract double totalOptionsPrice();
+
+    public void addOption(Option option){
+        ticketOptions.add(option);
+    }
+    public double totalOptionsPrice(){
+        return ticketOptions.size() * 100;
+    }
 
     public double totalMandatoryFees(){
         double boardingFee = 500;

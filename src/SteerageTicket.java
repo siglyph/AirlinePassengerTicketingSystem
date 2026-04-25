@@ -1,10 +1,10 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class SteerageTicket extends Ticket {
 
+    List<Option> ticketOptions = new ArrayList<>();
 
-    Option holdCarryOn = new Option("Hold carry-on bag", 100);
-    addOption(holdCarryOn);
 
     @Override
     public double getBaseTicketPrice() {
@@ -13,12 +13,11 @@ public class SteerageTicket extends Ticket {
 
     @Override
     public List<Option> getTicketOptions() {
-        return ticketOptions;
-    }
+        Option holdCarryOn = new Option("Hold carry-on bag", 100);
 
-    @Override
-    public void addOption(Option option) {
-        ticketOptions.add(option);
+        ticketOptions.add(holdCarryOn);
+
+        return ticketOptions;
     }
 
     @Override

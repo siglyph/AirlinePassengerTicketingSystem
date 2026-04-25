@@ -7,7 +7,4 @@ public class Option {
         this.cost = cost;
     }
 
-    public Option() {
-
-    }
 }
