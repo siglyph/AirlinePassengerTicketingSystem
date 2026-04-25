@@ -6,12 +6,10 @@ public class BusinessTicket extends Ticket {
     private List<Option> businessTicketOptions = new ArrayList<>();
 
     public BusinessTicket() {
-        Option additionalCarryOn = new Option("Additional carry-on bag", 100);
+        Option secondCarryOn = new Option("Second carry-on bag", 100);
 
-
-        businessTicketOptions.add(additionalCarryOn);
+        businessTicketOptions.add(secondCarryOn);
     }
-
 
     @Override
     public double getBaseTicketPrice() {

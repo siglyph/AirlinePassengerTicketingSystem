@@ -13,7 +13,7 @@ public class PremiumTicket extends Ticket{
 
     @Override
     public double getBaseTicketPrice() {
-        return 0;
+        return 30;
     }
 
     @Override

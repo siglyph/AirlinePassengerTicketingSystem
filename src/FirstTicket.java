@@ -3,7 +3,7 @@ import java.util.List;
 
 public class FirstTicket extends Ticket {
 
-    List<Option> firstTicketOptions = new ArrayList<>();
+    private List<Option> firstTicketOptions = new ArrayList<>();
 
     public FirstTicket() {
         Option yokeAndRudderPedals = new Option("Yoke and Rudder Pedals", 100);

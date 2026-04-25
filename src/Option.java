@@ -7,4 +7,14 @@ public class Option {
         this.cost = cost;
     }
 
+    // Getters
+
+    public String getOptionTitle() {
+        return optionTitle;
+    }
+
+    public double getCost(){
+        return cost;
+    }
+
 }

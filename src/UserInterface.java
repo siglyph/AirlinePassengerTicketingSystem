@@ -34,6 +34,40 @@ public class UserInterface {
     }
 
     public void addTicketUI(Scanner scanner){
+        int userSelection = getTicketSelection(scanner);
+
+        switch (userSelection){
+            case 1: // Steerage Ticket
+                SteerageTicket steerageTicket = new SteerageTicket();
+
+                System.out.println("1 Steerage Ticket has been added to your cart."
+                        + "\nWould you like to add any add-ons to your ticket?");
+
+                steerageTicket.getTicketOptions();
+
+                break;
+            case 2: // Coach Ticket
+                break;
+            case 3: // Business Ticket
+                break;
+            case 4: // Premium Ticket
+                break;
+            case 5: // First Ticket
+                break;
+            case 6: // Captain Ticket
+                break;
+            default:
+                System.out.println("Invalid choice. Please try again.");
+
+
+        }
+    }
+
+    public void ticketOptionsUI(){
+
+    }
+
+    public int getTicketSelection(Scanner scanner){
         String TicketUI = "Please select your desired ticket: "
                 + "\n1. Steerage: $5"
                 + "\n2. Coach:    $10"
@@ -41,8 +75,8 @@ public class UserInterface {
                 + "\n4. Premium:  $30"
                 + "\n5. First:    $50"
                 + "\n6. Captain:  $70\n";
-
-        int userSelection = scanner.nextInt();
+        System.out.println(TicketUI);
+        return scanner.nextInt();
     }
 
     public void displaySeatMapUI(){
