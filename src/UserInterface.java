@@ -9,28 +9,33 @@ public class UserInterface {
 
     public void runUI(){
         Scanner scanner = new Scanner(System.in);
+        boolean running = true;
 
-        String mainMenu = "Welcome to Poltergeist Airlines! What would you like to do today?" +
-                "\n1. Add a new ticket" +
-                "\n2. Display seat map" +
-                "\n3. Exit";
-        System.out.println(mainMenu);
+        while(running){
+            String mainMenu = "Welcome to Poltergeist Airlines! What would you like to do today?" +
+                    "\n1. Add a new ticket" +
+                    "\n2. Display seat map" +
+                    "\n3. Exit";
+            System.out.println(mainMenu);
 
-        int userSelection = scanner.nextInt();
+            int userSelection = scanner.nextInt();
 
-        switch (userSelection){
-            case 1:
-                addTicketUI(scanner);
-                break;
-            case 2:
-                displaySeatMapUI();
-                break;
-            case 3:
-                exitProgram();
-                break;
-            default:
-                System.out.println("Invalid choice. Please try again.");
+            switch (userSelection){
+                case 1:
+                    addTicketUI(scanner);
+                    break;
+                case 2:
+                    displaySeatMapUI();
+                    break;
+                case 3:
+                    running = false;
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
         }
+
+
 
     }
 
@@ -41,7 +46,7 @@ public class UserInterface {
         if (ticket == null) {return;}
 
         ticketOptionsUI(ticket, scanner);
-        getPriceBreakdown(ticket);
+        printPriceBreakdown(ticket);
         plane.addTicket(ticket);
     }
 
@@ -86,7 +91,7 @@ public class UserInterface {
 
     }
 
-    public void getPriceBreakdown(Ticket ticket){
+    public void printPriceBreakdown(Ticket ticket){
         System.out.println(
             "\nBase fare: $" + ticket.getBaseTicketPrice() +
             "\nTicket optionals: $" + ticket.totalOptionsPrice() +
@@ -94,7 +99,7 @@ public class UserInterface {
             "\nOxygen fee: $" + ticket.getOxygenFee() +
             "\nValue added tax: $" + ticket.getValueAddedTax() +
             "\n-----------" +
-            "\nTotal: " + ticket.getFinalTicketPrice()
+            "\nTotal: $" + ticket.getFinalTicketPrice()
         );
     }
 
@@ -111,10 +116,6 @@ public class UserInterface {
     }
 
     public void displaySeatMapUI(){
-
-    }
-
-    public void exitProgram(){
 
     }
 
