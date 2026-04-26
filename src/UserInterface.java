@@ -1,9 +1,10 @@
 import java.util.Scanner;
 
 public class UserInterface {
+    Plane plane;
 
-    public UserInterface(){
-
+    public UserInterface(Plane plane){
+        this.plane = plane;
     }
 
     public void runUI(){
@@ -39,12 +40,8 @@ public class UserInterface {
         switch (userSelection){
             case 1: // Steerage Ticket
                 SteerageTicket steerageTicket = new SteerageTicket();
-
-                System.out.println("1 Steerage Ticket has been added to your cart."
-                        + "\nWould you like to add any add-ons to your ticket?");
-
-                steerageTicket.getTicketOptions();
-
+                ticketOptionsUI(steerageTicket, scanner);
+                plane.addTicket(steerageTicket);
                 break;
             case 2: // Coach Ticket
                 break;
@@ -63,7 +60,26 @@ public class UserInterface {
         }
     }
 
-    public void ticketOptionsUI(){
+    public void ticketOptionsUI(Ticket ticket, Scanner scanner){
+        System.out.println(
+
+                "1 " + ticket + " has been added to your cart.\n" +
+
+                "Would you like to add any add-ons to your ticket?\n" +
+                "Available Ticket Options For " + ticket + "\n" +
+                "-----------------------------"
+
+        );
+
+        for (Option option : ticket.getTicketOptions()){
+            System.out.print(option + " - Add? (y/n): ");
+            char yesOrNo = scanner.next().charAt(0);
+
+            if (yesOrNo == 'y'){
+                ticket.addOption(option);
+            }
+        }
+
 
     }
 
@@ -74,7 +90,7 @@ public class UserInterface {
                 + "\n3. Business: $20"
                 + "\n4. Premium:  $30"
                 + "\n5. First:    $50"
-                + "\n6. Captain:  $70\n";
+                + "\n6. Captain:  $70";
         System.out.println(TicketUI);
         return scanner.nextInt();
     }

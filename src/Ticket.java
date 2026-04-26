@@ -27,4 +27,5 @@ public abstract class Ticket {
 
         return (boardingFee + oxygenFee + valueAddedTax);
     }
+
 }

@@ -1,7 +1,8 @@
 public class Main {
 
     public static void main(String[] args){
-        UserInterface UI = new UserInterface();
+        Plane plane = new Plane();
+        UserInterface UI = new UserInterface(plane);
         UI.runUI();
     }
 

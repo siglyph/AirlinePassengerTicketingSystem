@@ -17,4 +17,9 @@ public class Option {
         return cost;
     }
 
+    @Override
+    public String toString(){
+        return optionTitle + " (+$" + cost + ")";
+    }
+
 }
