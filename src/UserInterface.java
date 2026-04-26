@@ -63,7 +63,7 @@ public class UserInterface {
     public void ticketOptionsUI(Ticket ticket, Scanner scanner){
         System.out.println(
 
-                "1 " + ticket + " has been added to your cart.\n" +
+                "1 " + ticket + " has been added to your cart.\n\n" +
 
                 "Would you like to add any add-ons to your ticket?\n" +
                 "Available Ticket Options For " + ticket + "\n" +
@@ -81,6 +81,18 @@ public class UserInterface {
         }
 
 
+    }
+
+    public void getPriceBreakdown(Ticket ticket){
+        System.out.println(
+            "Base fare: $" + ticket.getBaseTicketPrice() +
+            "Ticket optionals: $" +
+            "Boarding fee: $" +
+            "Oxygen fee: $" +
+            "Value added tax: $" +
+            "-----------" +
+            "Total: "
+        );
     }
 
     public int getTicketSelection(Scanner scanner){
