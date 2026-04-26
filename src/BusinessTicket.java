@@ -20,4 +20,9 @@ public class BusinessTicket extends Ticket {
     public List<Option> getTicketOptions() {
         return businessTicketOptions;
     }
+
+    @Override
+    public String toString(){
+        return "Business Ticket";
+    }
 }

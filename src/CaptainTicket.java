@@ -19,4 +19,10 @@ public class CaptainTicket extends Ticket {
     public List<Option> getTicketOptions() {
         return captainTicketOptions;
     }
+
+
+    @Override
+    public String toString(){
+        return "Captain Ticket";
+    }
 }

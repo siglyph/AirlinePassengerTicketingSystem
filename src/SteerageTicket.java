@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SteerageTicket extends Ticket {
-    private final int MAX_CAPACITY = 493;
+    private static final int MAX_CAPACITY = 493;
 
     private List<Option> steerageTicketOptions = new ArrayList<>();
 

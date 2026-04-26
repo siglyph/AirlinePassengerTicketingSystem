@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class UserInterface {
-    Plane plane;
+    private Plane plane;
 
     public UserInterface(Plane plane){
         this.plane = plane;
@@ -36,34 +36,38 @@ public class UserInterface {
 
     public void addTicketUI(Scanner scanner){
         int userSelection = getTicketSelection(scanner);
+        Ticket ticket = createTicket(userSelection);
 
-        switch (userSelection){
+        if (ticket == null) {return;}
+
+        ticketOptionsUI(ticket, scanner);
+        getPriceBreakdown(ticket);
+        plane.addTicket(ticket);
+    }
+
+    private Ticket createTicket(int choice){
+        switch (choice){
             case 1: // Steerage Ticket
-                SteerageTicket steerageTicket = new SteerageTicket();
-                ticketOptionsUI(steerageTicket, scanner);
-                plane.addTicket(steerageTicket);
-                break;
+                return new SteerageTicket();
             case 2: // Coach Ticket
-                break;
+                return new CoachTicket();
             case 3: // Business Ticket
-                break;
+                return new BusinessTicket();
             case 4: // Premium Ticket
-                break;
+                return new PremiumTicket();
             case 5: // First Ticket
-                break;
+                return new FirstTicket();
             case 6: // Captain Ticket
-                break;
+                return new CaptainTicket();
             default:
-                System.out.println("Invalid choice. Please try again.");
-
-
+                return null;
         }
     }
 
     public void ticketOptionsUI(Ticket ticket, Scanner scanner){
         System.out.println(
 
-                "1 " + ticket + " has been added to your cart.\n\n" +
+                ticket + " has been added to your cart.\n\n" +
 
                 "Would you like to add any add-ons to your ticket?\n" +
                 "Available Ticket Options For " + ticket + "\n" +
@@ -80,18 +84,17 @@ public class UserInterface {
             }
         }
 
-
     }
 
     public void getPriceBreakdown(Ticket ticket){
         System.out.println(
-            "Base fare: $" + ticket.getBaseTicketPrice() +
-            "Ticket optionals: $" +
-            "Boarding fee: $" +
-            "Oxygen fee: $" +
-            "Value added tax: $" +
-            "-----------" +
-            "Total: "
+            "\nBase fare: $" + ticket.getBaseTicketPrice() +
+            "\nTicket optionals: $" + ticket.totalOptionsPrice() +
+            "\nBoarding fee: $" + ticket.getBoardingFee() +
+            "\nOxygen fee: $" + ticket.getOxygenFee() +
+            "\nValue added tax: $" + ticket.getValueAddedTax() +
+            "\n-----------" +
+            "\nTotal: " + ticket.getFinalTicketPrice()
         );
     }
 

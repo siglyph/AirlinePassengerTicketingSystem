@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CoachTicket extends Ticket {
-    private final int MAX_CAPACITY = 200;
+    private static final int MAX_CAPACITY = 200;
 
     private List<Option> coachTicketOptions = new ArrayList<>();
 
@@ -21,5 +21,10 @@ public class CoachTicket extends Ticket {
     @Override
     public List<Option> getTicketOptions() {
         return coachTicketOptions;
+    }
+
+    @Override
+    public String toString(){
+        return "Coach Ticket";
     }
 }

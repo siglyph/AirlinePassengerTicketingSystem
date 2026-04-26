@@ -4,7 +4,23 @@ import java.util.List;
 public abstract class Ticket {
     private List<Option> chosenTicketOptions = new ArrayList<>();
 
+    private double boardingFee = 500;
+    private double oxygenFee = 1000;
+    private double valueAddedTax = 1500;
+
     public abstract double getBaseTicketPrice();
+
+    public double getBoardingFee(){
+        return boardingFee;
+    }
+
+    public double getOxygenFee(){
+        return oxygenFee;
+    }
+
+    public double getValueAddedTax(){
+        return valueAddedTax;
+    }
 
     public double getFinalTicketPrice(){
         return getBaseTicketPrice() + totalOptionsPrice() + totalMandatoryFees();
@@ -21,11 +37,9 @@ public abstract class Ticket {
     }
 
     public double totalMandatoryFees(){
-        double boardingFee = 500;
-        double oxygenFee = 1000;
-        double valueAddedTax = 1500;
-
         return (boardingFee + oxygenFee + valueAddedTax);
     }
+
+
 
 }

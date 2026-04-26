@@ -11,7 +11,6 @@ public class FirstTicket extends Ticket {
         firstTicketOptions.add(yokeAndRudderPedals);
     }
 
-
     @Override
     public double getBaseTicketPrice() {
         return 50;
@@ -20,5 +19,10 @@ public class FirstTicket extends Ticket {
     @Override
     public List<Option> getTicketOptions() {
         return firstTicketOptions;
+    }
+
+    @Override
+    public String toString(){
+        return "First Ticket";
     }
 }

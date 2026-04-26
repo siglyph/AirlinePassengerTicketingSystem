@@ -20,4 +20,9 @@ public class PremiumTicket extends Ticket{
     public List<Option> getTicketOptions() {
         return premiumTicketOptions;
     }
+
+    @Override
+    public String toString(){
+        return "Premium Ticket";
+    }
 }
